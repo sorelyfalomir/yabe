@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if frontPost}
+<div> class = "post">
+    <h2> class="post-title"
+        <a href="#">${frontPost?.title}</a>
+    </h2>
+
+    ${frontPost?.content}
+
+    <div>
+        <span>Hecho por: ${frontpost?.author.fullName}</span>
+    </div>
+</div>
+#{/if}
+
+#{if olderPost}
+<div>
+    <ul>
+        #{list items:olderPost, as:'olderPost'}
+        <li> 
+            <button class="btn btn-primary">${oldPost?.title}</button>
+            <div>Hecho por: ${oldPost?.author}</div>
+        </li>
+        #{/list}
+    </ul>
+</div>
+#{/if}
